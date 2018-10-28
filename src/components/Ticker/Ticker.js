@@ -34,13 +34,16 @@ class Ticker extends Component {
                     Object.keys(this.props.tickersData).map((pair) => {
                         let currentTickerData = this.props.tickersData[pair];
                         let coin = pair.substr(0, 3);
-                        // let currency = pair.substr(3, 3);
+                        let currency = pair.substr(3, 3);
+                        let dailyChangeClass = currentTickerData.dailyChange < 0 ? 'lower' : 'higher';
+                        let dailyChangePercent = Math.abs(currentTickerData.dailyChange * 100);
+                        dailyChangePercent = Math.round(dailyChangePercent * 100) / 100;
                         return (
                             <div key={pair} className="ticker-data-wrapper">
                                 <div className="ticker-data-row">{coin}</div>
-                                <div className="ticker-data-row">{currentTickerData.lastPrice}</div>
-                                <div className="ticker-data-row">{currentTickerData.dailyChange}</div>
-                                <div className="ticker-data-row">{currentTickerData.volume}</div>
+                                <div className="ticker-data-row">{currentTickerData.lastPrice} <span className="ticker-currency">{currency}</span></div>
+                                <div className={`ticker-data-row ${dailyChangeClass}`}>{dailyChangePercent + '%'}</div>
+                                <div className="ticker-data-row">{Math.round(currentTickerData.volume)}</div>
                             </div>
                         );
                     })

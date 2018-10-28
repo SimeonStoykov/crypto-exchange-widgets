@@ -33,3 +33,15 @@
 .ticker-data-wrapper:hover {
     background-color: #273138;
 }
+
+.lower {
+    color: #aa5646;
+}
+
+.higher {
+    color: #478d4a;
+}
+
+.ticker-currency {
+    opacity: 0.6;
+}
