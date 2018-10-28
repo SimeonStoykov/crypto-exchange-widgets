@@ -23,7 +23,7 @@ class Ticker extends Component {
     render() {
         return (
             <div className="tickers">
-                <h1 className="tickers-title">Tickers</h1>
+                <h3 className="tickers-title">Tickers</h3>
                 <div className="ticker-header-wrapper">
                     <div className="ticker-header-row">NAME</div>
                     <div className="ticker-header-row">LAST</div>
@@ -63,14 +63,6 @@ const mapStateToProps = state => {
     };
 }
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         setChannelInfo: data => dispatch(setChannelInfo(data)),
-//         setTickerData: data => dispatch(setTickerData(data))
-//     }
-// };
-
 export default connect(
-    mapStateToProps,
-    // mapDispatchToProps
+    mapStateToProps
 )(Ticker);
