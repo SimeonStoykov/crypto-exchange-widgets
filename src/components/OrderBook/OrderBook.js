@@ -18,10 +18,9 @@ class OrderBook extends Component {
     webSocket.addEventListener('open', () => webSocket.send(msg));
   }
 
-  render() {
-    return (
-      <div className="order-book">
-        <h3 className="order-book-title">Order Book - BTC/USD</h3>
+  getBids() {
+    if (this.props.orderBookData.bids.length > 0) {
+      return (
         <div className="order-book-list">
           <div>
             <div className="order-book-col">COUNT</div>
@@ -31,7 +30,7 @@ class OrderBook extends Component {
           {
             this.props.orderBookData.bids.map((el, index) => {
               return (
-                <div key={index}  className="order-book-row">
+                <div key={index} className="order-book-row">
                   <div className="order-book-col">{el.count}</div>
                   <div className="order-book-col">{el.amount}</div>
                   <div className="order-book-col">{el.price}</div>
@@ -40,6 +39,15 @@ class OrderBook extends Component {
             })
           }
         </div>
+      );
+    }
+
+    return <div className="loading-order-book">Loading Bids...</div>;
+  }
+
+  getAsks() {
+    if (this.props.orderBookData.asks.length > 0) {
+      return (
         <div className="order-book-list">
           <div>
             <div className="order-book-col">PRICE</div>
@@ -49,15 +57,27 @@ class OrderBook extends Component {
           {
             this.props.orderBookData.asks.map((el, index) => {
               return (
-                <div key={index}  className="order-book-row">
+                <div key={index} className="order-book-row">
                   <div className="order-book-col">{el.price}</div>
                   <div className="order-book-col">{Math.abs(el.amount)}</div>
                   <div className="order-book-col">{el.count}</div>
                 </div>
               );
-          })
-        }
+            })
+          }
         </div>
+      );
+    }
+
+    return <div  className="loading-order-book">Loading Asks...</div>;
+  }
+
+  render() {
+    return (
+      <div className="order-book">
+        <h3 className="order-book-title">Order Book - BTC/USD</h3>
+        {this.getBids()}
+        {this.getAsks()}
       </div>
     );
   }

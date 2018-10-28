@@ -1,5 +1,5 @@
 .order-book {
-    margin-top: 20px;
+    margin: 20px;
     background-color: #1b262d;
     padding: 20px;
     padding-top: 0;
@@ -29,4 +29,10 @@
     padding-bottom: 10px;
     text-align: left;
     border-bottom: 1px solid #31393d;
+}
+
+.loading-order-book {
+    text-align: center;
+    display: inline-block;
+    width: 50%;
 }
