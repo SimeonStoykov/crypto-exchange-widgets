@@ -23,6 +23,7 @@ class Ticker extends Component {
     render() {
         return (
             <div>
+                <h1>Tickers</h1>
                 {
                     Object.keys(this.props.tickersData).map((pair) => {
                         let currentTickerData = this.props.tickersData[pair];

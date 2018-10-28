@@ -19,7 +19,7 @@ class Trade extends Component {
     render() {
         return (
             <div>
-                <h1>Trade Data</h1>
+                <h1>Trades Data</h1>
                 {
                     this.props.tradesData.map(tr => {
                         let tradeTime = new Date(tr.milliseconds);
