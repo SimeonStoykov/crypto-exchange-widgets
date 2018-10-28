@@ -1,0 +1,13 @@
+.trades {
+    margin-top: 20px;
+    background-color: #1b262d;
+    padding: 20px;
+    padding-top: 0;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.trades-col {
+    display: inline-block;
+    width: 33%;
+}

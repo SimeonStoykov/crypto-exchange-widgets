@@ -18,8 +18,13 @@ class Trade extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Trades Data</h1>
+            <div className="trades">
+                <h3>Trades BTC/USD</h3>
+                <div>
+                    <div className="trades-col">TIME</div>
+                    <div className="trades-col">PRICE</div>
+                    <div className="trades-col">AMOUNT</div>
+                </div>
                 {
                     this.props.tradesData.map(tr => {
                         let tradeTime = new Date(tr.milliseconds);
@@ -29,7 +34,9 @@ class Trade extends Component {
                         var hour = utcTradeTime.getHours();
                         return (
                             <div key={tr.id}>
-                                {`${hour}:${minutes}:${seconds}`} -> {tr.price} -> {tr.amount}
+                                <div className="trades-col">{`${hour}:${minutes}:${seconds}`}</div>
+                                <div className="trades-col">{tr.price}</div>
+                                <div className="trades-col">{tr.amount}</div>
                             </div>
                         );
                     })
