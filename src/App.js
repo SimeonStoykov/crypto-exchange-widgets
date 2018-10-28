@@ -131,11 +131,11 @@ class App extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="app">
         <Ticker webSocket={webSocket} />
         <OrderBook webSocket={webSocket} />
         <Trade webSocket={webSocket} />
-      </React.Fragment>
+      </div>
     );
   }
 }

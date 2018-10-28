@@ -22,14 +22,27 @@ class Ticker extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Tickers</h1>
+            <div className="tickers">
+                <h1 className="tickers-title">Tickers</h1>
+                <div className="ticker-header-wrapper">
+                    <div className="ticker-header-row">NAME</div>
+                    <div className="ticker-header-row">LAST</div>
+                    <div className="ticker-header-row">24H</div>
+                    <div className="ticker-header-row">VOL</div>
+                </div>
                 {
                     Object.keys(this.props.tickersData).map((pair) => {
                         let currentTickerData = this.props.tickersData[pair];
                         let coin = pair.substr(0, 3);
-                        let currency = pair.substr(3, 3);
-                        return <div key={pair}>{coin} - {currency}: {currentTickerData.lastPrice} -> {currentTickerData.dailyChange} -> {currentTickerData.volume}</div>
+                        // let currency = pair.substr(3, 3);
+                        return (
+                            <div key={pair} className="ticker-data-wrapper">
+                                <div className="ticker-data-row">{coin}</div>
+                                <div className="ticker-data-row">{currentTickerData.lastPrice}</div>
+                                <div className="ticker-data-row">{currentTickerData.dailyChange}</div>
+                                <div className="ticker-data-row">{currentTickerData.volume}</div>
+                            </div>
+                        );
                     })
                 }
             </div>
