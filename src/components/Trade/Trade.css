@@ -1,13 +1,31 @@
 .trades {
-    margin-top: 20px;
     background-color: #1b262d;
-    padding: 20px;
+    padding: 10px;
     padding-top: 0;
-    width: 50%;
-    margin: 0 auto;
+    width: calc(50% - 50px);
+    margin: 0;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.trades-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 0;
+    text-align: left;
+    border-bottom: 1px solid #31393d;
 }
 
 .trades-col {
     display: inline-block;
-    width: 33%;
+    width: calc(33% - 10px);
+    padding: 5px;
+}
+
+.minus-trade {
+    background-color: rgba(225, 86, 86, 0.063);
+}
+
+.plus-trade {
+    background-color: rgba(157, 194, 74, 0.05);
 }

@@ -19,7 +19,7 @@ class Trade extends Component {
     render() {
         return (
             <div className="trades">
-                <h3>Trades BTC/USD</h3>
+                <h3 className="trades-title">TRADES BTC/USD</h3>
                 <div>
                     <div className="trades-col">TIME</div>
                     <div className="trades-col">PRICE</div>
@@ -29,14 +29,20 @@ class Trade extends Component {
                     this.props.tradesData.map(tr => {
                         let tradeTime = new Date(tr.milliseconds);
                         let utcTradeTime = new Date(tradeTime.getTime() + tradeTime.getTimezoneOffset() * 60000);
-                        var seconds = utcTradeTime.getSeconds();
-                        var minutes = utcTradeTime.getMinutes();
-                        var hour = utcTradeTime.getHours();
+                        let seconds = utcTradeTime.getSeconds();
+                        let minutes = utcTradeTime.getMinutes();
+                        let hour = utcTradeTime.getHours();
+                        seconds < 10 && (seconds = '0' + seconds);
+                        minutes < 10 && (minutes = '0' + minutes);
+                        hour < 10 && (hour = '0' + hour);
+                        let amountRowClass = tr.amount < 0 ? 'minus-trade' : 'plus-trade';
+                        let amountToDisplay = Math.abs(Math.round(tr.amount * 10000) / 10000);
+
                         return (
-                            <div key={tr.id}>
+                            <div key={tr.id} className={amountRowClass}>
                                 <div className="trades-col">{`${hour}:${minutes}:${seconds}`}</div>
-                                <div className="trades-col">{tr.price}</div>
-                                <div className="trades-col">{tr.amount}</div>
+                                <div className="trades-col">{tr.price.toFixed(1)}</div>
+                                <div className="trades-col">{amountToDisplay.toFixed(4)}</div>
                             </div>
                         );
                     })

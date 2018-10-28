@@ -23,7 +23,7 @@ class Ticker extends Component {
     render() {
         return (
             <div className="tickers">
-                <h3 className="tickers-title">Tickers</h3>
+                <h3 className="tickers-title">TICKERS</h3>
                 <div className="ticker-header-wrapper">
                     <div className="ticker-header-row">NAME</div>
                     <div className="ticker-header-row">LAST</div>

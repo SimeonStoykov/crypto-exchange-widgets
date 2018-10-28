@@ -133,8 +133,8 @@ class App extends Component {
     return (
       <div className="app">
         <Ticker webSocket={webSocket} />
-        <OrderBook webSocket={webSocket} />
         <Trade webSocket={webSocket} />
+        <OrderBook webSocket={webSocket} />
       </div>
     );
   }
