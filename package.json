@@ -1,8 +1,11 @@
 {
   "name": "crypto-exchange-widgets",
-  "version": "0.1.0",
+  "version": "0.0.1",
+  "author": "Simeon Stoykov",
   "private": true,
+  "homepage": "https://simeonstoykov.github.io/crypto-exchange-widgets",
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "immutable": "^3.8.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
@@ -17,6 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
